@@ -5,9 +5,12 @@ from rest_framework.decorators import action
 from .models import Movie, Rating
 from django.contrib.auth.models import User
 from rest_framework.authentication import TokenAuthentication
-from .serializers import RatingSerializer, MovieSerializer
+from .serializers import RatingSerializer, MovieSerializer, UserSerializer
 
 # Create your views here.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
